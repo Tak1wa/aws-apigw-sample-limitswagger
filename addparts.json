@@ -1,0 +1,54 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2022-05-26T01:07:59Z",
+    "title" : "pats1"
+  },
+  "host" : "cvm5zxkwhh.execute-api.ap-northeast-1.amazonaws.com",
+  "basePath" : "/hoge",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "GET",
+          "uri" : "https://classmethod.jp/",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "type" : "http_proxy"
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Empty" : {
+      "type" : "object",
+      "title" : "Empty Schema"
+    }
+  },
+  "x-amazon-apigateway-documentation" : {
+    "version" : "v1",
+    "createdDate" : "2022-05-26T01:16:11Z",
+    "documentationParts" : [
+      {"location" : {"type" : "RESPONSE", "method" : "GET", "statusCode" : "200"}, "properties" : {"description" : "200 response"}},
+      {"location" : {"type" : "MODEL", "name" : "Empty"}, "properties" : {"title" : "Empty Schema"}},
+      {"location" : {"type" : "RESOURCE", "path" : "/1"}, "properties" : {"description" : "1"}},
+      {"location" : {"type" : "RESOURCE", "path" : "/2"}, "properties" : {"description" : "2"}}, 
+      {"location" : {"type" : "RESOURCE", "path" : "/3"}, "properties" : {"description" : "3"}},
+      {"location" : {"type" : "RESOURCE", "path" : "/4"}, "properties" : {"description" : "4"}}
+    ]
+  }
+}
